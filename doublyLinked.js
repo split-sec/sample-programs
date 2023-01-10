@@ -39,10 +39,28 @@ class doublyLinkedList {
 
         let locator = 0;
 
+        //if position is invalid
         if(this.head == null || pos < 0 || pos > this.count) {
             alert("Invalid position");
+
             return;
         } else {
+            //if position is for adding as head node
+            if(pos == 0) {
+                point = this.head;
+
+                newNode.right = point;
+                point.left = newNode;
+
+                this.head = newNode;
+
+                this.count++;
+                this.display();
+
+                return;
+            }
+
+            //if position is less than the half of list size
             if(pos <= Math.floor(this.count/2)) {
                point = this.head;
                
@@ -108,3 +126,4 @@ dll.append(60);
 dll.append(70);
 dll.insertAt(55, 5);
 dll.insertAt(5, 1);
+dll.insertAt(100, 0);

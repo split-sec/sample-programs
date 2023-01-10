@@ -11,7 +11,7 @@ class LinkedList {
 
     constructor() {
         this.head = null;
-        this.count = -1;
+        this.count = 0;
     }
 
     append(value) {
@@ -29,27 +29,40 @@ class LinkedList {
             point.next = newNode;
         }
 
+        this.count++;
         this.display();
     }
 
     insertAt(data, position) {
         let newNode = new Node(data);
 
-        let count = 0;
-
         let point = this.head;
 
-        if(position < 0 || position > count || this.head == null) {
+        let counter = 0;
+
+        if(position < 0 || position > this.count || this.head == null) {
             alert("Invalid position");
             return;
         }
 
-        while(point.next != null && count != position-1) {
+        if(position == 0) {
+            newNode.next = point;
+            this.head = newNode;
+
+            this.count++;
+            this.display();
+            
+            return;
+        }
+
+        while(point.next != null && counter != position-1) {
             point = point.next;
+            counter++;
         }
         newNode.next = point.next;
         point.next = newNode;
 
+        this.count++;
         this.display();
     }
 
@@ -72,6 +85,7 @@ class LinkedList {
     }
 
 }
+
 
 let list = new LinkedList();
 let data;
