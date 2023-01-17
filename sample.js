@@ -1,3 +1,5 @@
+//Don't add this file to commit
+
 function Accumulator(startingValue) {
     this.value = +startingValue;
 
