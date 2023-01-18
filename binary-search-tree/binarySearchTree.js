@@ -11,7 +11,6 @@ class Node {
 class binarySearch {
     constructor() {
         this.root = null;
-        this.queue = null;
         this.sum = +0;
     }
 
