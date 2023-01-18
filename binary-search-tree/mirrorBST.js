@@ -5,7 +5,6 @@ class Node {
         this.data = +value;
         this.left = null;
         this.right = null;
-        this.dist = 0;
     }
 }
 
@@ -13,7 +12,6 @@ class binarySearch {
     constructor() {
         this.root = null;
         this.sum = +0;
-        this.vlevel = {};
     }
 
     append(value) {
@@ -31,14 +29,12 @@ class binarySearch {
 
     insertNode(newNode, point) {
         if(newNode.data < point.data) {
-            newNode.dist = point.dist - 1;
             if(point.left == null) {
                 point.left = newNode;
             } else {
                 this.insertNode(newNode, point.left);
             }
         } else {
-            newNode.dist = point.dist + 1;
             if(point.right == null) {
                 point.right = newNode;
             } else {

@@ -56,30 +56,51 @@ class binarySearch {
         this.inOrder(point.right);
     }
 
-    mirror() {
-        let point = this.head;
+    vLevelTraversal() {
+        let point = this.root;
 
-        mirrorRecurse(point);
+        this.vlevelRecurse(point);
+
+        for(let i in this.vlevel) {
+            console.log(this.vlevel[i]);
+        }
     }
 
-    mirrorRecurse(point) {
+    vlevelRecurse(point) {
         if(!point) {
             return;
         }
 
-        this.mirrorRecurse(point.left);
+        this.vlevelRecurse(point.left);
 
-    
-        this.mirrorRecurse(point.right);
+        let dist = point.dist;
+        if(!this.vlevel) {
+            this.vlevel[dist] = [point.data];
+        } else {
+            if(this.vlevel[dist] !== undefined) {
+                this.vlevel[dist].push(point.data);
+            } else {
+                this.vlevel[dist] = [point.data];
+            }
+        }
+
+        this.vlevelRecurse(point.right);
     }
 }
 
 
 let obj = new binarySearch();
 obj.append(10);
+obj.append(6);
 obj.append(2);
-obj.append(15);
 obj.append(1);
 obj.append(3);
-obj.append(12);
-obj.append(16);
+obj.append(4);
+obj.append(20);
+obj.append(15);
+obj.append(60);
+obj.append(30);
+obj.append(40);
+
+obj.inOrder(obj.root);
+obj.vLevelTraversal();
