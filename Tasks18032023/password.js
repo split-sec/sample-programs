@@ -89,26 +89,56 @@ console.log(matrix);
 
 let obj = {};
 
-for(let i = 0; i < 3; i++) {
-    for(let j = 0; j < 3; j++) {
-        if(rows-1 >= 0) {
-            obj
-        }
-        if(rows+1 < 3) {
-            if(matrix[rows+1][cols] == prev) {
-                return true;
-            }
-        }
-    
-        if(cols-1 >= 0) {
-            if(matrix[rows][cols-1] == prev) {
-                return true;
-            }
-        }
-        if(cols+1 < 3) {
-            if(matrix[rows][cols+1] == prev) {
-                return true;
-            }
+function addObject(value, rows, cols) {
+    if(!obj) {
+        obj[value] = [matrix[rows][cols]];
+    } else {
+        if(obj[value] !== undefined) {
+            obj[value].push(matrix[rows][cols]);
+        } else {
+            obj[value] = [matrix[rows][cols]];
         }
     }
 }
+
+for(let i = 0; i < 3; i++) {
+    for(let j = 0; j < 3; j++) {
+        if(i-1 >= 0) {
+            addObject(matrix[i][j], i-1, j);
+        }
+
+        if(i+1 < 3) {
+            addObject(matrix[i][j], i+1, j);
+        }
+    
+        if(j-1 >= 0) {
+            addObject(matrix[i][j], i, j-1);
+        }
+        if(j+1 < 3) {
+            addObject(matrix[i][j], i, j+1);
+        }
+    }
+}
+
+let prev = -1;
+let time = 0;
+for(let i in password) {
+    if(prev == -1) {
+        prev = password[i];
+        time++;
+        continue;
+    }
+    if(password[i] == prev) {
+        continue;
+    }
+    if(obj[password[i]].includes(prev)) {
+        time++;
+        prev = password[i];
+    } else {
+        time += 2;
+        prev = password[i];
+    }
+}
+
+console.log(obj);
+console.log(time);
