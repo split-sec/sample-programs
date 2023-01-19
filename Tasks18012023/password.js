@@ -85,8 +85,6 @@ for(let i = 0; i < 3; i++) {
     matrix.push(a);
 }
 
-console.log(matrix);
-
 let obj = {};
 
 function addObject(value, rows, cols) {
@@ -139,6 +137,4 @@ for(let i in password) {
         prev = password[i];
     }
 }
-
-console.log(obj);
 console.log(time);

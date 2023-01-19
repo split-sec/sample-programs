@@ -1,3 +1,13 @@
+/*
+    Write this program to delete any node in the BST and 
+    still have a proper BST
+    **Pointers**
+    Intro - qualities, projects, learnings
+    Soft skills - etiquettes, emails
+    JS Questions - Team React
+    LeetCode Revision - Remove nth node, Merge two sorted lists, Rectangle area
+*/
+
 let input = require("readline-sync");
 
 class Node {
@@ -53,7 +63,33 @@ class binarySearch {
     }
 
     deleteNode(value) {
-        deleteNodeRecurse(this.root, value);
+        this.deleteNodeRecurse(this.root, value);
+    }
+
+    deleteNodeRecurse(point, value) {
+        if(!point) {
+            return;
+        }
+
+        if(value < point.data) {
+            this.deleteNodeRecurse(point.left, value);
+        } else {
+            this.deleteNodeRecurse(point.right, value);
+        }
+
+        if(!point.right) {
+            point = point.left;
+            return;
+        } 
+        let temp = point;
+        // temp.left = point.left;
+        // point = temp;
+
+        while(temp.right) {
+            temp.data = temp.right.data;
+            temp = temp.right;
+        }
+        temp.right = null;
     }
 }
 
@@ -61,15 +97,16 @@ class binarySearch {
 
 let obj = new binarySearch();
 obj.append(10);
-obj.append(6);
-obj.append(2);
-obj.append(1);
-obj.append(3);
 obj.append(5);
+obj.append(2);
+obj.append(6);
+obj.append(7);
+obj.append(8);
 obj.append(20);
 obj.append(15);
-obj.append(60);
-obj.append(30);
-obj.append(40);
+obj.append(25);
 
+obj.inOrder(obj.root);
+obj.deleteNode(5);
+console.log("\nAfter Deletion");
 obj.inOrder(obj.root);
