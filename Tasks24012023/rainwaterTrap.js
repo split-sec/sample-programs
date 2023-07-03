@@ -2,9 +2,7 @@ function maxOfArray(array) {
     let max = -1;
 
     for(let i = 0; i < array.length; i++) {
-        if(array[i] > max) {
-            max = array[i];
-        }
+        Math.max(max, array[i]);
     }
 
     return max;
@@ -30,8 +28,7 @@ function calculateWater(array) {
     let total = 0;
 
     for(let i = 0; i < array.length; i++) {
-        let min = lmax[i] < rmax[i] ? lmax[i] : rmax[i];
-        
+        let min = Math.min(lmax[i], rmax[i]);
         total += min - array[i];
     }
 

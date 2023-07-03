@@ -43,9 +43,9 @@ let output = "";
 
 for(i = 0; i < rows; i++) {
     for(j = i; j < str.length; j += step) {
-        output += str.charAt(j) + " ";
+        output += str.charAt(j);
         if(i != 0 && i != rows - 1 && (j + step - (2 * i)) < str.length) {
-            output += str.charAt(j + step - (2 * i)) + " ";
+            output += str.charAt(j + step - (2 * i));
         }
     }
 }

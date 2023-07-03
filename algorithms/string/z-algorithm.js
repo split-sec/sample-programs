@@ -1,6 +1,6 @@
 let str ="abcdeaabbdaabdgf";
 
-let pattern = "aabb";
+let pattern = "aabbda";
 
 let newStr = pattern + `$` + str;
 
@@ -18,9 +18,11 @@ for(let i = 1; i < newStr.length; i++) {
     }
     zValues.push(count);
 }
+
 console.log(zValues);
+
 for(let i = 0; i < zValues.length; i++) {
     if(zValues[i] == pattern.length){
-        console.log(i -pattern.length-1);
+        console.log(i - pattern.length-1);
     }
 }

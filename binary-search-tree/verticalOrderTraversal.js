@@ -62,7 +62,7 @@ class binarySearch {
         this.vlevelRecurse(point);
 
         for(let i in this.vlevel) {
-            console.log(this.vlevel[i]);
+            console.log(i + " " + this.vlevel[i]);
         }
     }
 

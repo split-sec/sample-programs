@@ -15,4 +15,4 @@ for(let i = 0; i < str.length; i++) {
 
 sum += num;
 
-console.log(sum);
+console.log(sum, str);

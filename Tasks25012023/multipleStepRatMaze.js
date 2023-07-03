@@ -32,11 +32,11 @@ function findPath(i, j) {
         if(isValid(i+k, j)) {
             findPath(i+k, j);
         }
-        console.log(`i: ${i}, j: ${j}`);
+        // console.log(`i: ${i}, j: ${j}`);
     }
     
     outputMatrix[i][j] = 0;
-    console.log("here");
+    // console.log("here");
     return false;
 }
 

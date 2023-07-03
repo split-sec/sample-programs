@@ -28,6 +28,7 @@ function KMPSearch(pat,txt)
     var j = 0;
 
     computeLPSArray(pat, M, lps);
+    console.log(lps);
     
     var i = 0;
     while ((N - i) >= (M - j)) {
@@ -51,5 +52,5 @@ function KMPSearch(pat,txt)
     
     
 var txt = "ABABDABACDABABCABAB";
-var pat = "ABABCABAB";
+var pat = "ACAAB";
 KMPSearch(pat, txt);

@@ -1,5 +1,4 @@
 let arr = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
-// arr.push(2**6);
 // console.log(arr);
 
 // function partition(l, h) {
